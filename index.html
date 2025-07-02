@@ -9,7 +9,7 @@
       scroll-behavior: smooth;
     }
     body {
-      font-family: sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       margin: 0;
       padding: 0;
       background: #fff;
@@ -27,22 +27,53 @@
       z-index: 999;
     }
     header h1 {
-      font-size: 2.5rem;
+      font-size: 2rem;
       font-weight: 600;
     }
+    nav {
+      display: flex;
+      gap: 1.5rem;
+    }
     nav a {
-      margin-left: 3rem;
       text-decoration: none;
       color: #111;
       font-weight: 500;
-      font-size: 1.5rem;
+      font-size: 1rem;
+    }
+    .menu-toggle {
+      display: none;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+    @media (max-width: 768px) {
+      nav {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        position: fixed;
+        top: 0;
+        right: -250px;
+        height: 100%;
+        width: 250px;
+        background-color: white;
+        padding: 2rem 1rem;
+        box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
+        transition: right 0.3s ease-in-out;
+      }
+      nav.active {
+        right: 0;
+      }
+      .menu-toggle {
+        display: block;
+      }
     }
     .intro {
       padding: 3rem;
       max-width: 800px;
     }
     section {
-      scroll-margin-top: 100px; /* header 높이 고려한 여유 공간 */
+      scroll-margin-top: 100px;
     }
     .section, .section02, .section03 {
       padding: 3rem;
@@ -70,10 +101,11 @@
 <body>
   <header>
     <h1>Yeon</h1>
-    <nav>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <nav id="nav">
       <a href="#main">Main</a>
       <a href="#about">About</a>
-      <a href="#project">Web Project</a>
+      <a href="#project">Project</a>
       <a href="#team">Team Project</a>
       <a href="#app">App Project</a>
     </nav>
@@ -121,5 +153,11 @@
     </p>
     <p>Copyright 2025 Yeon All rights reserved.</p>
   </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("nav").classList.toggle("active");
+    }
+  </script>
 </body>
 </html>
