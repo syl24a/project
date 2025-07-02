@@ -45,6 +45,14 @@
       font-size: 2rem;
       cursor: pointer;
     }
+    .close-btn {
+      display: none;
+      font-size: 2rem;
+      font-weight: bold;
+      cursor: pointer;
+      align-self: flex-end;
+      margin-bottom: 1rem;
+    }
     @media (max-width: 768px) {
       nav {
         display: flex;
@@ -65,6 +73,9 @@
         right: 0;
       }
       .menu-toggle {
+        display: block;
+      }
+      .close-btn {
         display: block;
       }
     }
@@ -103,11 +114,12 @@
     <h1>Yeon</h1>
     <div class="menu-toggle" onclick="toggleMenu()">☰</div>
     <nav id="nav">
-      <a href="#main">Main</a>
-      <a href="#about">About</a>
-      <a href="#project">Project</a>
-      <a href="#team">Team Project</a>
-      <a href="#app">App Project</a>
+      <div class="close-btn" onclick="toggleMenu()">✕</div>
+      <a href="#main" onclick="toggleMenu()">Main</a>
+      <a href="#about" onclick="toggleMenu()">About</a>
+      <a href="#project" onclick="toggleMenu()">Project</a>
+      <a href="#team" onclick="toggleMenu()">Team Project</a>
+      <a href="#app" onclick="toggleMenu()">App Project</a>
     </nav>
   </header>
 
